@@ -1,0 +1,3 @@
+0 venomous
+1 Nonvenomous
+2 NotSnake

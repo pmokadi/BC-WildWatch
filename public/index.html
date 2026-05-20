@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BC Wild Watch</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    body{font-family:Inter,sans-serif}
+    .bg-pattern{background-image:radial-gradient(#e60a18 .5px,transparent .5px);background-size:24px 24px;opacity:.05}
+    @keyframes fadeInUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+    .animate-fadeInUp{animation:fadeInUp 1s ease-out forwards}
+    .animate-fadeIn{animation:fadeIn 1.5s ease-out forwards}
+    .delay-200{animation-delay:.2s}
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+  <header class="flex items-center justify-between border-b border-slate-200 px-6 py-4 lg:px-20 bg-white/90 backdrop-blur sticky top-0 z-50">
+    <a href="index.html" class="flex items-center gap-4"><img src="media/images/logo.jpg" class="h-10 w-10 rounded-lg" alt="Logo"><span class="text-xl font-bold">BC Wild Watch</span></a>
+    <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+      <a href="index.html" class="hover:text-[#e60a18]">Home</a><a href="about.html" class="hover:text-[#e60a18]">About</a><a href="sighting.html" class="hover:text-[#e60a18]">Sighting Report</a><a href="incident.html" class="hover:text-[#e60a18]">Incident Report</a><a href="predictor.html" class="hover:text-[#e60a18]">Safety Scanner</a>
+    </nav>
+    <div class="hidden md:flex items-center gap-4"><a href="contact.html" class="bg-[#e60a18] text-white px-5 py-2 rounded-lg font-bold text-sm">Emergency Alert</a><div data-auth-slot></div></div>
+    <button data-menu-toggle class="md:hidden"><i data-lucide="menu"></i></button>
+  </header>
+  <div data-mobile-menu class="hidden md:hidden bg-white border-b p-6 flex flex-col gap-4 font-bold"><a href="index.html">Home</a><a href="about.html">About</a><a href="sighting.html">Sighting Report</a><a href="incident.html">Incident Report</a><a href="predictor.html">Safety Scanner</a><div data-mobile-auth-slot></div></div>
+
+  <main>
+    <section class="relative overflow-hidden min-h-[80vh] flex items-center">
+      <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover -z-20">
+        <source src="media/videos/Smart_Cities.mp4" type="video/mp4">
+      </video>
+      <div class="absolute inset-0 bg-pattern -z-10"></div>
+      <div class="absolute inset-0 bg-black/30 -z-10"></div>
+
+      <section class="max-w-6xl mx-auto px-6 py-20 text-center flex flex-col items-center">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#e60a18]/10 border border-[#e60a18]/20 text-[#e60a18] font-bold text-xs uppercase mb-8">
+          <i data-lucide="bell" class="w-4 h-4"></i>
+          Campus Safety First
+        </div>
+
+        <h1 class="text-white text-5xl md:text-8xl font-black mb-6 animate-fadeInUp">
+          Protecting the <br>
+          <span class="text-red-500 animate-fadeIn delay-200">Student Community</span>
+        </h1>
+
+        <p class="text-white text-lg md:text-xl max-w-2xl mb-12">
+          Intelligent incident reporting and AI-powered species detection.
+          Your frontline defense against campus wildlife hazards.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-6">
+          <a href="sighting.html" class="bg-slate-900 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-sm shadow-2xl">
+            Submit Report
+          </a>
+          <a href="predictor.html" class="bg-white text-slate-900 border-2 border-slate-200 px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-sm">
+            AI Scanner
+          </a>
+        </div>
+      </section>
+    </section>
+
+    <section class="py-20 px-6 max-w-6xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Key Features</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <article class="bg-white block max-w-sm p-6 border border-slate-200 rounded-lg shadow-sm">
+          <img class="rounded-lg w-full h-48 object-cover" src="media/images/doc.jpg" alt="Quick Reporting">
+          <h3 class="mt-6 mb-2 text-2xl font-semibold tracking-tight">Quick Reporting</h3>
+          <p class="mb-6 text-slate-600">Submit animal sightings quickly with location, images, and detailed descriptions.</p>
+        </article>
+        <article class="bg-white block max-w-sm p-6 border border-slate-200 rounded-lg shadow-sm">
+          <img class="rounded-lg w-full h-48 object-cover" src="media/images/robo.jpg" alt="AI Safety Assistant">
+          <h3 class="mt-6 mb-2 text-2xl font-semibold tracking-tight">AI Safety Assistant</h3>
+          <p class="mb-6 text-slate-600">Get immediate safety guidance and identify venomous vs. non-venomous species.</p>
+        </article>
+        <article class="bg-white block max-w-sm p-6 border border-slate-200 rounded-lg shadow-sm">
+          <img class="rounded-lg w-full h-48 object-cover" src="media/images/analysis.jpg" alt="Real-Time Analytics">
+          <h3 class="mt-6 mb-2 text-2xl font-semibold tracking-tight">Real-Time Analytics</h3>
+          <p class="mb-6 text-slate-600">Review incoming reports, safety signals, and incident details as the platform grows.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="px-6 pb-20 max-w-6xl mx-auto">
+      <div class="bg-yellow-100 border border-yellow-300 rounded-2xl p-8">
+        <div class="flex items-center gap-3 mb-4">
+          <i data-lucide="alert-triangle" class="w-6 h-6 text-yellow-600"></i>
+          <h3 class="text-xl font-bold">Safety First</h3>
+        </div>
+        <p class="text-slate-700 mb-8">
+          Target species monitoring includes: Snakes, Bees, and Lizards. If you encounter a dangerous animal,
+          maintain a safe distance and report immediately.
+        </p>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div><h4 class="font-semibold">Pretoria Campus</h4><p class="text-slate-600 text-sm">Emergency: 012 123 4567</p></div>
+          <div><h4 class="font-semibold">Kempton Park Campus</h4><p class="text-slate-600 text-sm">Emergency: 011 123 4567</p></div>
+          <div><h4 class="font-semibold">Stellenbosch Campus</h4><p class="text-slate-600 text-sm">Emergency: 021 123 4567</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-black text-slate-400 py-12 px-6 lg:px-20"><div class="max-w-6xl mx-auto flex justify-between items-center gap-6 flex-col md:flex-row"><span class="text-white font-bold text-xl">BC Wild Watch</span><p class="text-xs font-bold uppercase tracking-widest">© 2026 Belgium Campus IT Services.</p></div></footer>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
