@@ -1,7 +1,11 @@
 node_modules/
 .env
 .DS_Store
+**/.DS_Store
 venv/
 __pycache__/
+*.pyc
 uploads/*
-!.gitkeep
+!uploads/.gitkeep
+my_model/keras_model.h5
+.venv/

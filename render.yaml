@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: bc-wildwatch-api
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: MONGO_URI
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: JWT_EXPIRES_IN
+        value: 7d
+      - key: NODE_ENV
+        value: production
+      - key: PREDICT_API_URL
+        sync: false
+
+  - type: web
+    name: bc-wildwatch-predictor
+    env: python
+    buildCommand: pip install -r api/requirements.txt
+    startCommand: uvicorn api.predict:app --host 0.0.0.0 --port 10000
+    envVars:
+      - key: PORT
+        value: 10000
