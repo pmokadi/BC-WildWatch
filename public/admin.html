@@ -11,10 +11,18 @@
 <body class="bg-slate-50 text-slate-900 min-h-screen flex items-center justify-center">
   <main class="w-full max-w-md p-8">
     <div class="bg-white p-8 rounded-xl shadow-lg border border-slate-100">
-      <h1 class="text-2xl font-black mb-4">Admin Login</h1>
-      <p class="text-sm text-slate-600 mb-6">Enter the admin password to continue.</p>
+      <div class="text-center mb-6">
+        <img src="media/images/logo.jpg" class="inline-flex w-16 h-16 rounded-2xl mb-4" alt="BC Wild Watch logo">
+        <h1 class="text-2xl font-black">Admin Login</h1>
+      </div>
+      <p class="text-sm text-slate-600 mb-6">Enter your credentials to continue.</p>
 
       <form data-admin-form class="space-y-4">
+        <div>
+          <label class="block text-xs font-bold uppercase text-slate-400 mb-2">Username</label>
+          <input name="username" type="text" value="admin" class="w-full h-12 px-4 rounded-lg border border-slate-200 bg-slate-50" required>
+        </div>
+
         <div>
           <label class="block text-xs font-bold uppercase text-slate-400 mb-2">Password</label>
           <div class="relative">
