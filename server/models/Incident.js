@@ -17,26 +17,42 @@ const incidentSchema = new mongoose.Schema({
     },
 
     situationDescription: {
-        type: string,
+        type: String,
         required: true,
         trim: true
     },
 
-    //path to uploaded image/video attached by user
+    // path to uploaded image/video attached by user
     mediaUrl: {
-        type: string,
+        type: String,
         default: null
     },
 
+    campus: {
+        type: String,
+        default: "Pretoria Campus"
+    },
+
+    buildingArea: {
+        type: String,
+        trim: true,
+        default: ""
+    },
+
+    peopleAtRisk: {
+        type: Number,
+        default: 0
+    },
+
     status: {
-        type: string,
+        type: String,
         enum: ["Open", "In Progress", "Resolved"],
         default: "Open"
     },
 
-    //admin can add notes when reviewing the incident
+    // admin can add notes when reviewing the incident
     adminNotes: {
-        type: string,
+        type: String,
         default: ""
     }
 },
