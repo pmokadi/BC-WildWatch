@@ -7,11 +7,51 @@
   <main class="flex justify-center py-12 px-6 lg:px-20">
     <div class="w-full max-w-3xl"><div data-flash hidden></div>
       <div class="bg-black p-8 md:p-12 rounded-lg shadow-2xl mb-12 border-b-8 border-[#e60a18] flex justify-between items-center gap-8"><div><h1 class="text-white text-4xl md:text-5xl font-black uppercase mb-4">Emergency Incident</h1><p class="text-[#e60a18] font-black text-xs uppercase tracking-[0.3em]">Priority One: Immediate Response Required</p></div><div class="w-20 h-20 bg-[#e60a18]/20 border-2 border-[#e60a18] rounded-lg flex items-center justify-center text-[#e60a18]"><i data-lucide="alert-triangle" class="w-10 h-10"></i></div></div>
-      <form data-incident-form class="bg-white p-8 md:p-12 rounded-lg border border-slate-200 space-y-10">
-        <div><label class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">Visual Evidence</label><label class="mt-4 w-full h-40 border-4 border-dashed border-slate-100 bg-slate-50 rounded-lg flex flex-col items-center justify-center cursor-pointer hover:border-[#e60a18]"><i data-lucide="camera" class="w-10 h-10 text-slate-300"></i><span class="mt-2 text-xs font-black text-slate-400 uppercase">Attach Media</span><input type="file" class="hidden"></label></div>
-        <div><label class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">Situation Analysis Detail Description</label><textarea name="situation_description" rows="5" class="mt-4 w-full p-8 rounded-lg border border-slate-100 bg-slate-50 font-bold" placeholder="Provide a comprehensive breakdown of the situation..." required></textarea></div>
-        <div><label class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">Severity Level</label><div class="mt-4 grid grid-cols-2 gap-4"><label class="p-6 rounded-lg border-2 border-[#e60a18] bg-red-50 flex items-center gap-3"><input type="radio" name="urgency" value="critical" checked><span class="font-black text-xs uppercase">Critical</span></label><label class="p-6 rounded-lg border-2 border-slate-100 flex items-center gap-3"><input type="radio" name="urgency" value="high"><span class="font-black text-xs uppercase text-slate-400">High Risk</span></label></div></div>
-        <button type="submit" class="w-full bg-[#e60a18] text-white py-6 rounded-lg font-black text-xl uppercase tracking-[0.2em] hover:bg-black">Initiate Security Alert</button>
+      <form data-incident-form class="bg-white p-8 md:p-12 rounded-lg border border-slate-200 space-y-8" enctype="multipart/form-data">
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <label class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">Campus Location</label>
+            <select name="campus" class="mt-3 w-full h-14 px-5 rounded-2xl border border-slate-100 bg-slate-50 font-bold">
+              <option value="Pretoria Campus">Pretoria Campus</option>
+              <option value="Kempton Park Campus">Kempton Park Campus</option>
+              <option value="Stellenbosch Campus">Stellenbosch Campus</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div>
+            <label class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">Building/Area</label>
+            <input name="building_area" class="mt-3 w-full h-14 px-5 rounded-2xl border border-slate-100 bg-slate-50 font-bold" placeholder="Specific location">
+          </div>
+        </div>
+
+        <div>
+          <label class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">Visual Evidence</label>
+          <label class="mt-4 w-full h-40 border-4 border-dashed border-slate-100 bg-slate-50 rounded-lg flex flex-col items-center justify-center cursor-pointer hover:border-[#e60a18]"><i data-lucide="camera" class="w-10 h-10 text-slate-300"></i><span class="mt-2 text-xs font-black text-slate-400 uppercase">Attach Media</span><input name="media" type="file" class="hidden"></label>
+        </div>
+
+        <div>
+          <label class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">Severity Level</label>
+          <div class="mt-4 grid grid-cols-3 gap-4">
+            <label class="p-6 rounded-lg border-2 border-slate-100 flex items-center justify-center"><input type="radio" name="urgency" value="High" checked class="mr-2"><span class="font-black text-sm">High</span></label>
+            <label class="p-6 rounded-lg border-2 border-slate-100 flex items-center justify-center"><input type="radio" name="urgency" value="Medium" class="mr-2"><span class="font-black text-sm">Medium</span></label>
+            <label class="p-6 rounded-lg border-2 border-slate-100 flex items-center justify-center"><input type="radio" name="urgency" value="Low" class="mr-2"><span class="font-black text-sm">Low</span></label>
+          </div>
+        </div>
+
+        <div>
+          <label class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">Incident Description</label>
+          <textarea name="situation_description" rows="5" class="mt-4 w-full p-8 rounded-lg border border-slate-100 bg-slate-50 font-bold" placeholder="What happened? Is anyone injured? What is the threat?" required></textarea>
+        </div>
+
+        <div>
+          <label class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">Number of People at Risk (if applicable)</label>
+          <input name="people_at_risk" type="number" min="0" class="mt-3 w-full h-14 px-5 rounded-2xl border border-slate-100 bg-slate-50 font-bold" placeholder="0">
+        </div>
+
+        <div class="flex items-center gap-6">
+          <button type="submit" class="flex-1 bg-[#e60a18] text-white py-6 rounded-lg font-black text-lg uppercase tracking-[0.2em] hover:bg-black">Submit Emergency Report</button>
+          <button type="button" onclick="document.querySelector('[data-incident-form]').reset()" class="px-6 py-4 rounded-lg border border-slate-200">Cancel</button>
+        </div>
       </form>
     </div>
   </main>
