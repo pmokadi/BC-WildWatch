@@ -1,14 +1,70 @@
+<!-- ============================================
+     BC Wild Watch - Sighting Report Page
+     Allows users to submit wildlife sightings
+     ============================================ -->
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Report Sighting | BC Wild Watch</title><script src="https://cdn.tailwindcss.com"></script><script src="https://unpkg.com/lucide@latest"></script><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"><style>body{font-family:Inter,sans-serif}</style></head>
+<head>
+  <!-- Meta tags for character encoding and responsive design -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Report Sighting | BC Wild Watch</title>
+  
+  <!-- Tailwind CSS framework for styling -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Lucide icons for UI elements -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
 <body class="bg-slate-50 text-slate-900">
-  <header class="flex items-center justify-between border-b px-6 py-4 lg:px-20 bg-white sticky top-0 z-50"><a href="index.html" class="flex items-center gap-4"><img src="media/images/logo.jpg" class="h-10 w-10 rounded-lg" alt=""><span class="text-xl font-bold">BC Wild Watch</span></a><nav class="hidden md:flex items-center gap-8 text-sm font-medium"><a href="index.html">Home</a><a href="about.html">About</a><a href="sighting.html" class="text-[#e60a18]">Sighting Report</a><a href="incident.html">Incident Report</a><a href="predictor.html">Safety Scanner</a></nav><div class="hidden md:flex items-center gap-4"><a href="contact.html" class="bg-[#e60a18] text-white px-5 py-2 rounded-lg font-bold text-sm">Emergency Alert</a><div data-auth-slot></div></div><button data-menu-toggle class="md:hidden"><i data-lucide="menu"></i></button></header>
-  <div data-mobile-menu class="hidden md:hidden bg-white border-b p-6 flex flex-col gap-4 font-bold"><a href="index.html">Home</a><a href="about.html">About</a><a href="sighting.html">Sighting Report</a><a href="incident.html">Incident Report</a><a href="predictor.html">Safety Scanner</a><div data-mobile-auth-slot></div></div>
+  <!-- Header section with navigation -->
+  <header class="flex items-center justify-between border-b px-6 py-4 lg:px-20 bg-white sticky top-0 z-50">
+    <a href="index.html" class="flex items-center gap-4">
+      <img src="media/images/logo.jpg" class="w-16 h-16 rounded-full object-cover">
+      <span class="font-black text-xl hidden sm:block">BC Wild Watch</span>
+    </a>
+
+    <!-- Desktop navigation menu -->
+    <nav class="hidden md:flex gap-8 font-bold">
+      <a href="index.html" class="hover:text-[#e60a18]">Home</a>
+      <a href="about.html" class="hover:text-[#e60a18]">About</a>
+      <a href="sighting.html" class="text-[#e60a18]">Report Sighting</a>
+      <a href="gallery.html" class="hover:text-[#e60a18]">Gallery</a>
+    </nav>
+
+    <!-- Mobile menu toggle button -->
+    <button data-menu-toggle class="md:hidden text-2xl">☰</button>
+  </header>
+
+  <!-- Mobile navigation menu (hidden by default) -->
+  <div data-mobile-menu class="hidden md:hidden bg-white border-b p-6 flex flex-col gap-4 font-bold">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="sighting.html">Sighting Report</a>
+    <a href="gallery.html">Gallery</a>
+  </div>
+
+  <!-- Main content area -->
   <main class="flex justify-center py-12 px-6 lg:px-20">
     <div class="w-full max-w-3xl">
+      <!-- Flash messages container for notifications -->
       <div data-flash hidden></div>
-      <div class="mb-12"><div class="flex items-center gap-2 text-[#e60a18] mb-4"><i data-lucide="eye" class="w-5 h-5"></i><span class="font-black uppercase tracking-[0.2em] text-[10px]">Citizen Science Portal</span></div><h1 class="text-4xl md:text-6xl font-black tracking-tight mb-4">Report Animal Sighting</h1><p class="text-slate-600 text-lg font-medium">Your contribution helps us protect more students.</p></div>
+
+      <!-- Page title and description -->
+      <div class="mb-12">
+        <div class="flex items-center gap-2 text-[#e60a18] mb-4">
+          <i data-lucide="eye" class="w-5 h-5"></i>
+          <span class="font-black uppercase tracking-[0.2em] text-[10px]">Citizen Science</span>
+        </div>
+        <h1 class="text-4xl font-black mb-4">Report a Sighting</h1>
+        <p class="text-slate-500 leading-relaxed">Help us track wildlife across British Columbia. Submit your observations with as much detail as possible to contribute to our citizen science initiative.</p>
+      </div>
+
+      <!-- Sighting report form -->
       <form data-sighting-form class="bg-white p-8 md:p-12 rounded-lg shadow-xl border border-slate-100 space-y-8" enctype="multipart/form-data">
+        
+        <!-- Campus location and date fields -->
         <div class="grid md:grid-cols-2 gap-8">
           <div>
             <label class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">Campus Location</label>
@@ -25,6 +81,7 @@
           </div>
         </div>
 
+        <!-- Time and animal type fields -->
         <div class="grid md:grid-cols-2 gap-8">
           <div>
             <label class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">Time</label>
@@ -41,16 +98,19 @@
           </div>
         </div>
 
+        <!-- Detailed location field -->
         <div>
           <label class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">Detailed Location (Building, Area)</label>
           <input name="detailed_location" class="mt-3 w-full h-14 px-5 rounded-2xl border border-slate-100 bg-slate-50 font-bold" placeholder="e.g., Library Building, South Lawn">
         </div>
 
+        <!-- Description/notes text area -->
         <div>
           <label class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">Description of Sighting</label>
           <textarea name="notes" rows="4" class="mt-3 w-full p-6 rounded-3xl border border-slate-100 bg-slate-50 font-bold" placeholder="Color, size, behavior, any distinctive features..."></textarea>
         </div>
 
+        <!-- Photo upload field -->
         <div>
           <label class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">Photo (if available)</label>
           <div class="mt-3 flex items-center gap-4">
@@ -58,10 +118,13 @@
           </div>
         </div>
 
+        <!-- Form submission button -->
         <button type="submit" class="w-full bg-[#e60a18] text-white py-5 rounded-2xl font-black uppercase tracking-widest text-sm hover:bg-black">Submit Observation Report</button>
       </form>
     </div>
   </main>
+
+  <!-- Application JavaScript for form handling and interactions -->
   <script src="assets/js/app.js"></script>
 </body>
 </html>
