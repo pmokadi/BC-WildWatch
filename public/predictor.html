@@ -1,37 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>AI Safety Scanner | BC Wild Watch</title><script src="https://cdn.tailwindcss.com"></script><script src="https://unpkg.com/lucide@latest"></script><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"><style>body{font-family:Inter,sans-serif}</style></head>
+<head>
+  <!-- Meta tags for character encoding and responsive design -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Safety Scanner | BC Wild Watch</title>
+  
+  <!-- Tailwind CSS framework for utility-based styling -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
 <body class="bg-slate-50 text-slate-900">
-  <header class="flex items-center justify-between border-b px-6 py-4 lg:px-20 bg-white sticky top-0 z-50"><a href="index.html" class="flex items-center gap-4"><img src="media/images/logo.jpg" class="h-10 w-10 rounded-lg" alt=""><span class="text-xl font-bold">BC Wild Watch</span></a><nav class="hidden md:flex items-center gap-8 text-sm font-medium"><a href="index.html">Home</a><a href="about.html">About</a><a href="sighting.html">Sighting Report</a><a href="incident.html">Incident Report</a><a href="predictor.html" class="text-[#e60a18]">Safety Scanner</a></nav><div class="hidden md:flex items-center gap-4"><a href="contact.html" class="bg-[#e60a18] text-white px-5 py-2 rounded-lg font-bold text-sm">Emergency Alert</a><div data-auth-slot></div></div><button data-menu-toggle class="md:hidden"><i data-lucide="menu"></i></button></header>
-  <div data-mobile-menu class="hidden md:hidden bg-white border-b p-6 flex flex-col gap-4 font-bold"><a href="index.html">Home</a><a href="about.html">About</a><a href="sighting.html">Sighting Report</a><a href="incident.html">Incident Report</a><a href="predictor.html">Safety Scanner</a><div data-mobile-auth-slot></div></div>
+  <!-- Header section with navigation -->
+  <header class="flex items-center justify-between border-b px-6 py-4 lg:px-20 bg-white sticky top-0 z-50">
+    <!-- Logo and branding -->
+    <a href="index.html" class="flex items-center gap-4">
+      <img src="media/images/logo.jpg" class="h-10 w-10 rounded-lg" alt="BC Wild Watch logo">
+      <span class="font-bold text-xl">BC Wild Watch</span>
+    </a>
+    
+    <!-- Desktop navigation menu -->
+    <nav class="hidden md:flex gap-6 font-bold">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="sighting.html">Sighting Report</a>
+      <a href="predictor.html">AI Scanner</a>
+    </nav>
+    
+    <!-- Mobile menu toggle button -->
+    <button data-mobile-menu-toggle class="md:hidden">
+      <i data-lucide="menu" class="w-6 h-6"></i>
+    </button>
+  </header>
+  
+  <!-- Mobile navigation menu (hidden by default) -->
+  <div data-mobile-menu class="hidden md:hidden bg-white border-b p-6 flex flex-col gap-4 font-bold">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="sighting.html">Sighting Report</a>
+    <a href="predictor.html">AI Scanner</a>
+  </div>
+
+  <!-- Main content area -->
   <main class="max-w-6xl mx-auto px-6 py-16">
+    <!-- Flash message container for notifications -->
     <div data-flash hidden></div>
+    
+    <!-- Main content grid: form on left, results sidebar on right -->
     <div class="lg:flex gap-12">
+      <!-- Left section: Image upload form -->
       <section class="flex-1">
         <h1 class="text-5xl font-black mb-8">AI Safety <span class="text-[#e60a18]">Scanner</span></h1>
+        
+        <!-- Form for image upload with drag-and-drop styling -->
         <form data-predictor-form class="border-4 border-dashed border-slate-200 bg-white p-10 md:p-20 rounded-lg text-center flex flex-col items-center">
+          <!-- Upload icon -->
           <i data-lucide="upload" class="w-16 h-16 text-slate-300 mb-6"></i>
-          <label class="bg-slate-900 text-white px-8 py-4 rounded-xl font-bold uppercase text-xs cursor-pointer tracking-widest">Upload Target<input data-image-input type="file" accept="image/*" class="hidden" required></label>
+          
+          <!-- File input button -->
+          <label class="bg-slate-900 text-white px-8 py-4 rounded-xl font-bold uppercase text-xs cursor-pointer tracking-widest">
+            Upload Target
+            <input data-image-input type="file" accept="image/*" class="hidden">
+          </label>
+          
+          <!-- Submit button to scan image -->
           <button type="submit" class="mt-6 bg-[#e60a18] text-white px-6 py-3 rounded-xl font-bold uppercase text-xs tracking-widest hover:bg-red-700">Scan Image</button>
         </form>
       </section>
+
+      <!-- Right section: Results sidebar -->
       <aside class="w-full lg:w-96 bg-white p-8 rounded-lg border border-slate-200 shadow-xl h-fit mt-10 lg:mt-0">
         <h2 class="text-slate-900 font-bold mb-6">Result</h2>
-        <div class="h-64 bg-slate-50 rounded-lg flex items-center justify-center border-2 border-slate-100 border-dashed mb-6"><img data-preview hidden class="max-h-full max-w-full object-contain" alt="Preview"></div>
+        
+        <!-- Image preview area -->
+        <div class="h-64 bg-slate-50 rounded-lg flex items-center justify-center border-2 border-slate-100 border-dashed mb-6">
+          <img data-preview hidden class="max-h-full max-w-full object-contain" alt="Preview of uploaded image">
+        </div>
+        
+        <!-- AI prediction result display -->
         <div data-result class="text-slate-400">AI response will appear here.</div>
-        <div data-api-notice hidden class="mt-6 rounded-lg bg-yellow-50 border border-yellow-200 p-4 text-sm text-yellow-900">Add Teachable Machine files to <b>my_model/</b> and run <b>py server.py</b> in the <b>api</b> folder (see README).</div>
+        
+        <!-- API configuration notice (shown when model files are missing) -->
+        <div data-api-notice hidden class="mt-6 rounded-lg bg-yellow-50 border border-yellow-200 p-4 text-sm text-yellow-900">
+          Add Teachable Machine files to <b>my_model/</b> and run <b>py server.py</b> to start scanning.
+        </div>
       </aside>
     </div>
+
+    <!-- AI Safety Feedback section -->
     <section class="mt-16 bg-slate-100 w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] py-16 md:py-20">
       <div class="max-w-6xl mx-auto px-6 lg:px-20">
         <h2 class="text-3xl md:text-5xl text-center font-black mb-8">
           AI Safety <span class="text-[#e60a18]">Feedback</span>
         </h2>
+        
+        <!-- Feedback information card -->
         <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg border border-slate-200 shadow-lg">
           <p class="text-slate-600 mb-8 text-center">
             Get AI-powered safety information about the detected animal, including danger level,
             behavior, and emergency actions.
           </p>
+          
+          <!-- Feedback display area -->
           <div data-ai-feedback class="bg-slate-50 border border-slate-200 rounded-xl p-6 min-h-[150px]">
             <p class="text-slate-400">AI feedback will appear here...</p>
           </div>
@@ -39,16 +108,22 @@
       </div>
     </section>
   </main>
+
+  <!-- Footer section -->
   <footer class="bg-black text-slate-400 py-12 px-6 lg:px-20">
     <div class="max-w-6xl mx-auto flex justify-between items-center gap-4 flex-col md:flex-row">
+      <!-- Logo and branding -->
       <div class="flex items-center gap-3">
         <img src="media/images/logo.jpg" class="h-10 w-10 rounded-lg" alt="BC Wild Watch logo">
         <span class="text-white font-bold text-xl">BC Wild Watch</span>
       </div>
+      
+      <!-- Copyright information -->
       <p class="text-xs font-bold uppercase tracking-widest">© 2026 BC Wild Watch.</p>
     </div>
   </footer>
+
+  <!-- Main application JavaScript -->
   <script src="assets/js/app.js"></script>
 </body>
-</html>
 </html>
