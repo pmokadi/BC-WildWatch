@@ -11,41 +11,62 @@ const sightingSchema = new mongoose.Schema({
     },
 
     species: {
-        type: string,
+        type: String,
         required: true,
         enum: ["Snakes", "Bees", "Lizards", "Spiders", "Other"]
     },
 
     location: {
-        type: string,
+        type: String,
         required: true,
         trim: true
     },
 
     campus: {
-        type: string,
-        default: "Main Campus - Pretoria"
+        type: String,
+        default: "Pretoria Campus"
     },
 
     notes: {
-        type: string,
+        type: String,
         trim: true
+    },
+
+    detailedLocation: {
+        type: String,
+        trim: true,
+        default: ""
+    },
+
+    sightingDate: {
+        type: Date,
+        default: null
+    },
+
+    sightingTime: {
+        type: String,
+        default: null
+    },
+
+    photo: {
+        type: String,
+        default: null
     },
 
     //stores AI model result if student used the safety scanner
     prediction: {
         label: {
-            type: string,
+            type: String,
             default: null
         },
         confidence: {
-        type: string,
-        default: null
+            type: String,
+            default: null
         }
     },
 
     status: {
-        type: string,
+        type: String,
         enum: ["Open", "Pending", "Reviewed", "Resolved"],
         default: "Open"
     }
@@ -53,5 +74,5 @@ const sightingSchema = new mongoose.Schema({
 {
     timestamps: true // Automatically add createdAt and updatedAt fields
 });
-
-module.exports = moongoose.model("Sighting", sightingSchema);
+ 
+module.exports = mongoose.model("Sighting", sightingSchema);
