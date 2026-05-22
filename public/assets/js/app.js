@@ -232,17 +232,20 @@ function initReportForms() {
   });
 
   // Emergency incident report form handler
-  document.querySelector("[data-incident-form]")?.addEventListener("submit", (event) => {
+document.querySelector("[data-incident-form]")?.addEventListener("submit", (event) => {
     event.preventDefault();
     requireUser();
     const form = new FormData(event.target);
-    
-    // Store incident report with urgency level and description
+    const mediaFile = form.get("media");
     store.push("bcww_reports", {
       type: "incident",
       userEmail: currentUser().email,
+      campus: form.get("campus"),
+      buildingArea: form.get("building_area"),
       urgency: form.get("urgency"),
-      situationDescription: form.get("situation_description")
+      situationDescription: form.get("situation_description"),
+      peopleAtRisk: form.get("people_at_risk") || 0,
+      mediaName: mediaFile && mediaFile.name ? mediaFile.name : null
     });
     event.target.reset();
     flash("Incident report saved in this browser.");
