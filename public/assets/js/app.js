@@ -132,12 +132,18 @@ function initReportForms() {
     event.preventDefault();
     requireUser();
     const form = new FormData(event.target);
+    const photoFile = form.get("photo");
     store.push("bcww_reports", {
       type: "sighting",
       userEmail: currentUser().email,
+      campus: form.get("campus"),
+      date: form.get("date"),
+      time: form.get("time"),
       speciesGroup: form.get("species_group"),
-      location: form.get("location"),
-      notes: form.get("notes")
+      location: form.get("location") || form.get("detailed_location") || "",
+      detailedLocation: form.get("detailed_location"),
+      notes: form.get("notes"),
+      photoName: photoFile && photoFile.name ? photoFile.name : null
     });
     event.target.reset();
     flash("Sighting report saved in this browser.");
