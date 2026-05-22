@@ -4,26 +4,26 @@ const mongoos = require("mongoose");
 
 const contactSchema = new mongoose.Schema({
     name: {
-        type: string,
-        requireed: true,
+        type: String,
+        required: true,
         trim: true
     },
 
     email: {
-        type: string,
+        type: String,
         required: true,
         lowercase: true,
         trim: true
     },
 
     subject: {
-        type: string,
+        type: String,
         required: true,
         enum: ["Technical Support (AI Scanner)", "Reporting System Question", "App Suggestion/Feedback", "Safety Awareness Request", "Other"]
     },
 
     message: {
-        type: string,
+        type: String,
         required: true,
         trim: true
     },
