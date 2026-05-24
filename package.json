@@ -1,0 +1,12 @@
+{
+  "name": "bc-wild-watch-root",
+  "private": true,
+  "scripts": {
+    "backend": "cd backend && npm run dev",
+    "frontend": "cd bc-wild-watch-static && npx live-server . --port=5500 --open=index.html",
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.1"
+  }
+}

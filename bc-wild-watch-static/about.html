@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | BC Wild Watch</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>body{font-family:Inter,sans-serif}</style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+  <header class="flex items-center justify-between border-b border-slate-200 px-6 py-4 lg:px-20 bg-white sticky top-0 z-50">
+    <a href="index.html" class="flex items-center gap-4"><img src="media/images/logo.jpg" class="h-10 w-10 rounded-lg" alt=""><span class="text-xl font-bold">BC Wild Watch</span></a>
+    <nav class="hidden md:flex items-center gap-8 text-sm font-medium"><a href="index.html">Home</a><a href="about.html" class="text-[#e60a18]">About</a><a href="sighting.html">Sighting Report</a><a href="incident.html">Incident Report</a><a href="predictor.html">Safety Scanner</a></nav>
+    <div class="hidden md:flex items-center gap-4"><a href="contact.html" class="bg-[#e60a18] text-white px-5 py-2 rounded-lg font-bold text-sm">Emergency Alert</a><div data-auth-slot></div></div>
+    <button data-menu-toggle class="md:hidden"><i data-lucide="menu"></i></button>
+  </header>
+  <div data-mobile-menu class="hidden md:hidden bg-white border-b p-6 flex flex-col gap-4 font-bold"><a href="index.html">Home</a><a href="about.html">About</a><a href="sighting.html">Sighting Report</a><a href="incident.html">Incident Report</a><a href="predictor.html">Safety Scanner</a><div data-mobile-auth-slot></div></div>
+
+  <main>
+    <section class="max-w-6xl mx-auto px-6 py-20">
+      <p class="text-[#e60a18] text-xs font-black uppercase tracking-[0.3em] mb-4">Species Guide</p>
+      <h1 class="text-4xl md:text-6xl font-black mb-6">Target Species Monitoring</h1>
+      <p class="text-slate-600 max-w-2xl mb-12">
+        Specialized recognition for dangerous wildlife encountered on campus. The platform focuses on animals that need fast reporting, careful distance, and clear safety guidance.
+      </p>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <article class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm">
+          <img src="media/images/snake.jpg" class="h-56 w-full object-cover" alt="Snake">
+          <div class="p-8"><h2 class="text-xl font-bold mb-2">Snakes</h2><span class="px-2 py-1 text-[10px] font-bold rounded uppercase bg-red-50 text-red-600">High Priority</span></div>
+        </article>
+        <article class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm">
+          <img src="media/images/bees.jpg" class="h-56 w-full object-cover" alt="Bees and wasps">
+          <div class="p-8"><h2 class="text-xl font-bold mb-2">Bees & Wasps</h2><span class="px-2 py-1 text-[10px] font-bold rounded uppercase bg-yellow-50 text-yellow-600">Allergy Risk</span></div>
+        </article>
+        <article class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm">
+          <img src="media/images/lizard.jpg" class="h-56 w-full object-cover" alt="Lizard">
+          <div class="p-8"><h2 class="text-xl font-bold mb-2">Lizard</h2><span class="px-2 py-1 text-[10px] font-bold rounded uppercase bg-slate-100 text-slate-600">Monitoring</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="bg-white border-y border-slate-200 p-1">
+      <div class="max-w-6xl mx-auto px-6 py-20">
+        <div class="max-w-3xl mb-12">
+          <p class="text-[#e60a18] text-xs font-black uppercase tracking-[0.3em] mb-4">AI Predictor</p>
+          <h2 class="text-3xl md:text-5xl font-black tracking-tight">How the AI safety scanner works</h2>
+          <p class="mt-5 text-slate-600 text-lg">The scanner helps students make safer decisions before getting close to unknown wildlife.</p>
+        </div>
+
+        <div class="grid lg:grid-cols-4 gap-6">
+          <article class="border border-slate-200 rounded-lg p-6 bg-slate-50"><div class="w-12 h-12 rounded-xl bg-[#e60a18] text-white flex items-center justify-center mb-5"><i data-lucide="upload"></i></div><h3 class="font-black text-lg">1. Upload Image</h3><p class="mt-3 text-sm text-slate-600">A student uploads a clear photo of the animal from a safe distance.</p></article>
+          <article class="border border-slate-200 rounded-lg p-6 bg-slate-50"><div class="w-12 h-12 rounded-xl bg-slate-900 text-white flex items-center justify-center mb-5"><i data-lucide="scan-line"></i></div><h3 class="font-black text-lg">2. Model Predicts</h3><p class="mt-3 text-sm text-slate-600">Your hosted model receives the image and returns the class plus confidence score.</p></article>
+          <article class="border border-slate-200 rounded-lg p-6 bg-slate-50"><div class="w-12 h-12 rounded-xl bg-yellow-500 text-white flex items-center justify-center mb-5"><i data-lucide="sparkles"></i></div><h3 class="font-black text-lg">3. Gemini Explains</h3><p class="mt-3 text-sm text-slate-600">A secure Gemini proxy turns the prediction into plain safety guidance and first-aid steps.</p></article>
+          <article class="border border-slate-200 rounded-lg p-6 bg-slate-50"><div class="w-12 h-12 rounded-xl bg-green-600 text-white flex items-center justify-center mb-5"><i data-lucide="shield-check"></i></div><h3 class="font-black text-lg">4. Take Action</h3><p class="mt-3 text-sm text-slate-600">The student keeps distance, follows the guidance, and submits a report if needed.</p></article>
+        </div>
+
+        
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-black text-slate-400 py-12 px-6 lg:px-20"><div class="max-w-6xl mx-auto flex justify-between flex-col md:flex-row gap-6"><span class="text-white font-bold text-xl">BC Wild Watch</span><p class="text-xs font-bold uppercase tracking-widest">&copy; 2026 Belgium Campus IT Services.</p></div></footer>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
