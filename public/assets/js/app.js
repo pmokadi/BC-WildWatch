@@ -182,23 +182,34 @@ function initSignup() {
  * Validates email and password against stored users
  */
 function initLogin() {
-  document.querySelector("[data-login-form]")?.addEventListener("submit", (event) => {
+  document.querySelector("[data-login-form]")?.addEventListener("submit", async (event) => {
     event.preventDefault();
     const form = new FormData(event.target);
-    const email = form.get("email").trim().toLowerCase();
-    const password = form.get("password");
-    
-    // Find user with matching email and password
-    const user = store.get("bcww_users").find((item) => item.email === email && item.password === password);
 
-    if (!user) {
-      flash("Invalid email or password.", "error");
-      return;
+    try {
+      const response = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: form.get("email").trim().toLowerCase(),
+          password: form.get("password")
+        })
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        flash(data.message || "Invalid email or password.", "error");
+        return;
+      }
+
+      // Save token and user to localStorage
+      localStorage.setItem("bcww_token", data.token);
+      setUser({ email: data.user.email, fullName: data.user.fullName, role: data.user.role });
+      location.href = "index.html";
+    } catch (error) {
+      flash("Something went wrong. Please try again.", "error");
     }
-
-    // Set current user and redirect to home
-    setUser({ email: user.email, fullName: user.fullName });
-    location.href = "index.html";
   });
 }
 
