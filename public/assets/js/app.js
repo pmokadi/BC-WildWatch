@@ -388,6 +388,10 @@ function initPredictor() {
   }
 }
 
+function microsoftLogin() {
+  window.location.href = "/api/auth/microsoft/login";
+}
+
 /**
  * Initialize all application functionality when DOM is loaded
  */
