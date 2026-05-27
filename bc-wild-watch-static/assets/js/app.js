@@ -2,8 +2,6 @@ const API_BASE_URL = "http://localhost:5000/api";
 const MODEL_API_URL = "";
 const GEMINI_FEEDBACK_API_URL = "";
 
-console.log("APP JS LOADED", API_BASE_URL);
-
 function currentUser() {
   return JSON.parse(localStorage.getItem("bcww_user") || "null");
 }
@@ -103,7 +101,6 @@ function initSignup() {
 
   formEl.addEventListener("submit", async (event) => {
     event.preventDefault();
-    console.log("SIGNUP SUBMIT FIRED");
 
     const form = new FormData(event.target);
     const fullName = form.get("full_name")?.trim();
@@ -158,7 +155,6 @@ function initLogin() {
 
   formEl.addEventListener("submit", async (event) => {
     event.preventDefault();
-    console.log("LOGIN SUBMIT FIRED");
 
     const form = new FormData(event.target);
     const email = form.get("email")?.trim().toLowerCase();
@@ -192,12 +188,102 @@ function initLogin() {
   });
 }
 
+function initMicrosoftDemoForm() {
+  const formEl = document.querySelector("[data-microsoft-demo-form]");
+  if (!formEl) return;
+
+  formEl.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const form = new FormData(event.target);
+    const email = form.get("email")?.trim().toLowerCase();
+    const password = form.get("password");
+
+    try {
+      const response = await fetch(`${API_BASE_URL}/auth/microsoft-demo-login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          email,
+          password
+        })
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        flash(data.message || "Microsoft login failed.", "error");
+        return;
+      }
+
+      setUser(data.data);
+      location.href = "index.html";
+    } catch (error) {
+      console.error("Microsoft demo login error:", error);
+      flash("Server error during Microsoft login.", "error");
+    }
+  });
+}
+
+function initMicrosoftDemoSignupForm() {
+  const formEl = document.querySelector("[data-microsoft-demo-signup-form]");
+  if (!formEl) return;
+
+  formEl.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const form = new FormData(event.target);
+    const fullName = form.get("full_name")?.trim();
+    const email = form.get("email")?.trim().toLowerCase();
+    const password = form.get("password");
+    const confirmPassword = form.get("confirm_password");
+
+    if (password !== confirmPassword) {
+      flash("Passwords do not match.", "error");
+      return;
+    }
+
+    if (!password || password.length < 8) {
+      flash("Password must be at least 8 characters.", "error");
+      return;
+    }
+
+    try {
+      const response = await fetch(`${API_BASE_URL}/auth/microsoft-demo-signup`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          fullName,
+          email,
+          password
+        })
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        flash(data.message || "Microsoft signup failed.", "error");
+        return;
+      }
+
+      setUser(data.data);
+      location.href = "index.html";
+    } catch (error) {
+      console.error("Microsoft demo signup error:", error);
+      flash("Server error during Microsoft signup.", "error");
+    }
+  });
+}
+
 function initReportForms() {
   const sightingForm = document.querySelector("[data-sighting-form]");
   if (sightingForm) {
     sightingForm.addEventListener("submit", async (event) => {
       event.preventDefault();
-      console.log("SIGHTING SUBMIT FIRED");
 
       if (!requireUser()) return;
 
@@ -210,8 +296,6 @@ function initReportForms() {
         notes: form.get("notes"),
         imageUrl: ""
       };
-
-      console.log("SIGHTING PAYLOAD", payload);
 
       try {
         const response = await fetch(`${API_BASE_URL}/reports/sighting`, {
@@ -242,7 +326,6 @@ function initReportForms() {
   if (incidentForm) {
     incidentForm.addEventListener("submit", async (event) => {
       event.preventDefault();
-      console.log("INCIDENT SUBMIT FIRED");
 
       if (!requireUser()) return;
 
@@ -256,8 +339,6 @@ function initReportForms() {
         dateTime: form.get("date_time"),
         imageUrl: mediaFile ? mediaFile.name : ""
       };
-
-      console.log("INCIDENT PAYLOAD", payload);
 
       try {
         const response = await fetch(`${API_BASE_URL}/reports/incident`, {
@@ -725,6 +806,8 @@ function initPredictor() {
 
 document.addEventListener("DOMContentLoaded", () => {
   initLayout();
+  initMicrosoftDemoForm();
+  initMicrosoftDemoSignupForm();
   initSignup();
   initLogin();
   initReportForms();

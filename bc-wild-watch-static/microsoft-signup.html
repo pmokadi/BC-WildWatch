@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Create Account | BC Wild Watch</title>
+  <title>Microsoft Sign Up | BC Wild Watch</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -18,32 +18,19 @@
         <a href="index.html">
           <img src="media/images/logo.jpg" class="inline-flex w-16 h-16 rounded-2xl mb-6" alt="">
         </a>
-        <h1 class="text-3xl font-black">Create Student Account</h1>
-        <p class="mt-2 text-slate-600">Join the Belgium Campus Wildlife Monitoring Network</p>
+        <h1 class="text-3xl font-black">Create Microsoft Account Access</h1>
+        <p class="mt-2 text-slate-600">Register a Microsoft-style BC Wild Watch account</p>
       </div>
 
       <div data-flash hidden></div>
 
       <div class="bg-white p-8 md:p-10 rounded-lg shadow-sm border border-slate-200 space-y-8">
-        <button
-          type="button"
-          onclick="location.href='microsoft-signup.html'"
-          class="w-full flex items-center justify-center gap-3 border border-slate-200 py-4 rounded-xl font-bold hover:bg-slate-50"
-        >
+        <div class="flex items-center justify-center gap-3 border border-slate-200 py-4 rounded-xl font-bold bg-slate-50">
           <img src="https://www.microsoft.com/favicon.ico" class="w-5 h-5" alt="Microsoft Logo">
-          Sign up with Microsoft
-        </button>
-
-        <div class="relative">
-          <div class="absolute inset-0 flex items-center">
-            <div class="w-full border-t border-slate-200"></div>
-          </div>
-          <div class="relative flex justify-center text-xs uppercase">
-            <span class="bg-white px-2 text-slate-500 font-bold">Or register with email</span>
-          </div>
+          Microsoft Account Registration
         </div>
 
-        <form data-signup-form class="grid md:grid-cols-2 gap-6">
+        <form data-microsoft-demo-signup-form class="grid md:grid-cols-2 gap-6">
           <div class="md:col-span-2">
             <label class="text-xs font-bold uppercase tracking-widest text-slate-500">Full Name</label>
             <input
@@ -56,12 +43,12 @@
           </div>
 
           <div class="md:col-span-2">
-            <label class="text-xs font-bold uppercase tracking-widest text-slate-500">Student Email</label>
+            <label class="text-xs font-bold uppercase tracking-widest text-slate-500">Microsoft Email</label>
             <input
               name="email"
               type="email"
               class="mt-2 w-full px-4 py-3 rounded-xl border bg-slate-50"
-              placeholder="student@belgiumcampus.ac.za"
+              placeholder="name@outlook.com"
               required
             >
           </div>
@@ -72,6 +59,7 @@
               name="password"
               type="password"
               class="mt-2 w-full px-4 py-3 rounded-xl border bg-slate-50"
+              placeholder="Create password"
               required
             >
           </div>
@@ -82,24 +70,20 @@
               name="confirm_password"
               type="password"
               class="mt-2 w-full px-4 py-3 rounded-xl border bg-slate-50"
+              placeholder="Confirm password"
               required
             >
           </div>
 
-          <label class="md:col-span-2 flex items-start gap-3 text-xs text-slate-500">
-            <input type="checkbox" required class="mt-1">
-            I agree to the Terms of Service and Privacy Policy.
-          </label>
-
           <button class="md:col-span-2 w-full bg-[#e60a18] text-white py-4 rounded-xl font-black uppercase tracking-widest">
-            Create Student Account
+            Create Microsoft Account
           </button>
         </form>
       </div>
 
       <p class="text-center text-sm text-slate-600">
-        Already have an account?
-        <a href="login.html" class="text-[#e60a18] font-bold">Sign In</a>
+        Already have a Microsoft-style account?
+        <a href="microsoft-login.html" class="text-[#e60a18] font-bold">Sign In</a>
       </p>
     </div>
   </main>
