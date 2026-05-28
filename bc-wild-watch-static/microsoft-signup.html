@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Microsoft Sign Up | BC Wild Watch</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: Inter, sans-serif; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+  <main class="min-h-screen flex items-center justify-center px-6 py-12">
+    <div class="w-full max-w-xl space-y-8">
+      <div class="text-center">
+        <a href="index.html">
+          <img src="media/images/logo.jpg" class="inline-flex w-16 h-16 rounded-2xl mb-6" alt="">
+        </a>
+        <h1 class="text-3xl font-black">Create Microsoft Account Access</h1>
+        <p class="mt-2 text-slate-600">Register a Microsoft-style BC Wild Watch account</p>
+      </div>
+
+      <div data-flash hidden></div>
+
+      <div class="bg-white p-8 md:p-10 rounded-lg shadow-sm border border-slate-200 space-y-8">
+        <div class="flex items-center justify-center gap-3 border border-slate-200 py-4 rounded-xl font-bold bg-slate-50">
+          <img src="https://www.microsoft.com/favicon.ico" class="w-5 h-5" alt="Microsoft Logo">
+          Microsoft Account Registration
+        </div>
+
+        <form data-microsoft-demo-signup-form class="grid md:grid-cols-2 gap-6">
+          <div class="md:col-span-2">
+            <label class="text-xs font-bold uppercase tracking-widest text-slate-500">Full Name</label>
+            <input
+              name="full_name"
+              type="text"
+              class="mt-2 w-full px-4 py-3 rounded-xl border bg-slate-50"
+              placeholder="Enter your full name"
+              required
+            >
+          </div>
+
+          <div class="md:col-span-2">
+            <label class="text-xs font-bold uppercase tracking-widest text-slate-500">Microsoft Email</label>
+            <input
+              name="email"
+              type="email"
+              class="mt-2 w-full px-4 py-3 rounded-xl border bg-slate-50"
+              placeholder="name@outlook.com"
+              required
+            >
+          </div>
+
+          <div>
+            <label class="text-xs font-bold uppercase tracking-widest text-slate-500">Password</label>
+            <input
+              name="password"
+              type="password"
+              class="mt-2 w-full px-4 py-3 rounded-xl border bg-slate-50"
+              placeholder="Create password"
+              required
+            >
+          </div>
+
+          <div>
+            <label class="text-xs font-bold uppercase tracking-widest text-slate-500">Confirm Password</label>
+            <input
+              name="confirm_password"
+              type="password"
+              class="mt-2 w-full px-4 py-3 rounded-xl border bg-slate-50"
+              placeholder="Confirm password"
+              required
+            >
+          </div>
+
+          <button class="md:col-span-2 w-full bg-[#e60a18] text-white py-4 rounded-xl font-black uppercase tracking-widest">
+            Create Microsoft Account
+          </button>
+        </form>
+      </div>
+
+      <p class="text-center text-sm text-slate-600">
+        Already have a Microsoft-style account?
+        <a href="microsoft-login.html" class="text-[#e60a18] font-bold">Sign In</a>
+      </p>
+    </div>
+  </main>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

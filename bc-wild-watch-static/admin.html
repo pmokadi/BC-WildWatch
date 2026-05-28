@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | BC Wild Watch</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: Inter, sans-serif; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="media/images/logo.jpg" alt="BC Wild Watch Logo" class="w-12 h-12 rounded-xl object-cover">
+        <span class="text-2xl font-black">BC Wild Watch</span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8 font-semibold">
+        <a href="index.html" class="hover:text-red-600 transition">Home</a>
+        <a href="about.html" class="hover:text-red-600 transition">About</a>
+        <a href="sighting.html" class="hover:text-red-600 transition">Sighting Report</a>
+        <a href="incident.html" class="hover:text-red-600 transition">Incident Report</a>
+        <a href="predictor.html" class="hover:text-red-600 transition">Safety Scanner</a>
+        <a href="admin.html" class="text-red-600 font-bold">Admin</a>
+      </nav>
+
+      <div class="flex items-center gap-4" data-auth-slot></div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-6 py-10">
+    <div data-flash hidden></div>
+
+    <section class="mb-10">
+      <p class="text-red-600 font-black uppercase tracking-[0.2em] text-xs mb-2">Admin Console</p>
+      <h1 class="text-4xl md:text-5xl font-black">Report Management Dashboard</h1>
+      <p class="text-slate-600 mt-3">View, open, update, and delete submitted sightings and incidents.</p>
+    </section>
+
+    <section class="grid md:grid-cols-4 gap-6 mb-10">
+      <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+        <p class="text-xs uppercase tracking-widest text-slate-500 font-bold">Total Reports</p>
+        <h2 class="text-4xl font-black mt-3" id="totalReports">0</h2>
+      </div>
+      <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+        <p class="text-xs uppercase tracking-widest text-slate-500 font-bold">Sightings</p>
+        <h2 class="text-4xl font-black mt-3" id="totalSightings">0</h2>
+      </div>
+      <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+        <p class="text-xs uppercase tracking-widest text-slate-500 font-bold">Incidents</p>
+        <h2 class="text-4xl font-black mt-3" id="totalIncidents">0</h2>
+      </div>
+      <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+        <p class="text-xs uppercase tracking-widest text-slate-500 font-bold">Resolved</p>
+        <h2 class="text-4xl font-black mt-3" id="resolvedReports">0</h2>
+      </div>
+    </section>
+
+    <section class="grid lg:grid-cols-2 gap-8">
+      <div class="bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
+        <div class="px-6 py-5 border-b border-slate-200 flex items-center justify-between">
+          <h2 class="text-2xl font-black">Sighting Reports</h2>
+          <span class="text-sm font-bold text-slate-500" id="sightingCount">0 items</span>
+        </div>
+        <div id="sightingsList" class="divide-y divide-slate-100"></div>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
+        <div class="px-6 py-5 border-b border-slate-200 flex items-center justify-between">
+          <h2 class="text-2xl font-black">Incident Reports</h2>
+          <span class="text-sm font-bold text-slate-500" id="incidentCount">0 items</span>
+        </div>
+        <div id="incidentsList" class="divide-y divide-slate-100"></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="reportModal" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50 px-4">
+    <div class="bg-white rounded-2xl shadow-2xl w-full max-w-2xl p-8 relative">
+      <button onclick="closeReportModal()" class="absolute top-4 right-4 text-slate-500 hover:text-red-600">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+      <div id="reportModalContent"></div>
+    </div>
+  </div>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
