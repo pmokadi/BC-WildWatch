@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BC Wild Watch</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: Inter, sans-serif; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="media/images/logo.jpg" alt="BC Wild Watch Logo" class="w-12 h-12 rounded-xl object-cover">
+        <span class="text-2xl font-black">BC Wild Watch</span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8 font-semibold">
+        <a href="index.html" class="hover:text-red-600 transition">Home</a>
+        <a href="about.html" class="hover:text-red-600 transition">About</a>
+        <a href="sighting.html" class="hover:text-red-600 transition">Sighting Report</a>
+        <a href="incident.html" class="hover:text-red-600 transition">Incident Report</a>
+        <a href="predictor.html" class="hover:text-red-600 transition">Safety Scanner</a>
+      </nav>
+
+      <div class="flex items-center gap-4" data-auth-slot></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="relative bg-slate-300 min-h-[700px] flex items-center justify-center text-center px-6">
+      <div class="max-w-5xl mx-auto">
+        <div class="inline-flex items-center gap-2 border border-red-300 text-red-600 rounded-full px-4 py-2 text-sm font-bold uppercase tracking-wider mb-8">
+          <i data-lucide="shield-alert" class="w-4 h-4"></i>
+          Campus Safety First
+        </div>
+
+        <h1 class="text-5xl md:text-7xl font-black leading-tight text-white">
+          Protecting the
+          <span class="text-red-500 block">Student Community</span>
+        </h1>
+
+        <p class="mt-8 text-xl text-white max-w-3xl mx-auto">
+          Intelligent incident reporting and AI-powered species detection. Your frontline defense against campus wildlife hazards.
+        </p>
+
+        <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="sighting.html" class="bg-slate-900 text-white px-8 py-4 rounded-2xl font-black uppercase tracking-wider hover:bg-slate-800 transition">
+            Submit Report
+          </a>
+          <a href="predictor.html" class="bg-white text-slate-900 px-8 py-4 rounded-2xl font-black uppercase tracking-wider border border-slate-200 hover:bg-slate-100 transition">
+            AI Scanner
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 px-6 bg-white">
+      <div class="max-w-6xl mx-auto text-center">
+        <h2 class="text-4xl font-black mb-12">Key Features</h2>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="bg-slate-50 border border-slate-200 rounded-2xl p-8 shadow-sm">
+            <div class="w-14 h-14 rounded-2xl bg-red-100 flex items-center justify-center mx-auto mb-5">
+              <i data-lucide="map-pinned" class="w-7 h-7 text-red-600"></i>
+            </div>
+            <h3 class="text-xl font-black mb-3">Easy Reporting</h3>
+            <p class="text-slate-600">
+              Quickly report animal sightings and dangerous incidents anywhere on campus.
+            </p>
+          </div>
+
+          <div class="bg-slate-50 border border-slate-200 rounded-2xl p-8 shadow-sm">
+            <div class="w-14 h-14 rounded-2xl bg-red-100 flex items-center justify-center mx-auto mb-5">
+              <i data-lucide="shield" class="w-7 h-7 text-red-600"></i>
+            </div>
+            <h3 class="text-xl font-black mb-3">Student Safety</h3>
+            <p class="text-slate-600">
+              Help improve awareness and response by keeping campus safety information current.
+            </p>
+          </div>
+
+          <div class="bg-slate-50 border border-slate-200 rounded-2xl p-8 shadow-sm">
+            <div class="w-14 h-14 rounded-2xl bg-red-100 flex items-center justify-center mx-auto mb-5">
+              <i data-lucide="scan-search" class="w-7 h-7 text-red-600"></i>
+            </div>
+            <h3 class="text-xl font-black mb-3">AI Safety Scanner</h3>
+            <p class="text-slate-600">
+              Upload wildlife images and use the safety scanner to support identification workflows.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-slate-900 text-white py-8 px-6">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-sm text-slate-300">© 2026 BC Wild Watch. All rights reserved.</p>
+      <div class="flex gap-6 text-sm">
+        <a href="about.html" class="hover:text-red-400 transition">About</a>
+        <a href="contact.html" class="hover:text-red-400 transition">Contact</a>
+        <a href="login.html" class="hover:text-red-400 transition">Login</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
